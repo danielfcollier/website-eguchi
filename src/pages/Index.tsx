@@ -63,7 +63,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white space-y-8 animate-in slide-in-from-left duration-1000">
             <div className="inline-block px-4 py-1 border border-primary/50 rounded-full bg-primary/20 backdrop-blur-sm text-sm tracking-widest uppercase font-heading text-stone-200">
-              Odontologia Humanizada no Itacorubi
+              Odontologia humanizada
             </div>
             
             <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
@@ -246,7 +246,7 @@ const Index = () => {
             ))}
           </div>
 
-          {/* VISÃO MOBILE (Accordion) - Alteração Aqui: defaultValue="item-0" */}
+          {/* VISÃO MOBILE (Accordion) - Com Gabriela aberta por padrão */}
           <div className="md:hidden">
             <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {testimonials.map((t, i) => (
