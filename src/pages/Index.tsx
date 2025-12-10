@@ -4,6 +4,12 @@ import { Footer } from "../components/Footer";
 import { OptimizedImage } from "../components/OptimizedImage";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion";
 import { 
   Quote, Star, CheckCircle2, Clock, 
   Heart, Sparkles, ShieldCheck, Microscope, MapPin, Stethoscope 
@@ -18,6 +24,25 @@ const Index = () => {
   const whatsappLink = "https://wa.me/message/FP7NX7ED7JYTH1";
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.315039533306!2d-48.50379432454236!3d-27.583724276253787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273919e3556073%3A0x673999902506306!2sRod.%20Admar%20Gonzaga%2C%20971%20-%20Itacorubi%2C%20Florian%C3%B3polis%20-%20SC%2C%2088034-000!5e0!3m2!1spt-BR!2sbr!4v1710987654321!5m2!1spt-BR!2sbr";
 
+  const testimonials = [
+    {
+      name: "Gabriela",
+      text: "Uma experiência incrível! Como alguém que sofre de síndrome do pânico, sempre tive muito medo de ir ao dentista. No entanto, a clínica me surpreendeu. O atendimento foi excepcional... o tratamento de canal que eu precisava foi feito de forma cuidadosa e profissional. Foi a primeira vez que não tive ansiedade."
+    },
+    {
+      name: "Pamela",
+      text: "Fiz alguns procedimentos desde implante até clareamento. A Ana e o Marcel realmente entregam aquilo que propõe, a odontologia humanizada. Atendimento impecável, preço justo e cuidado com o paciente durante todo o momento. Recomendo muito!"
+    },
+    {
+      name: "Eric",
+      text: "Fantástico, além de altamente capacitados todo o atendimento é altamente humanizado, como se fossem amigos de longa data. Super recomendo. Finalmente me sinto confiante para sorrir e mostrar meu sorriso!”"
+    },
+    {
+      name: "Amanda",
+      text: "A simpatia e atenção da equipe foi o que certamente mais me cativou, além da resolução com excelência do que estava me incomodando. Pós atendimento saí feliz, sem dores e sorrindo a toa. Super recomendo!!!”"
+    }
+  ];
+
   return (
     <div className="min-h-screen font-body text-stone-800 bg-stone-50">
       <Header />
@@ -26,7 +51,8 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <OptimizedImage 
-            src={heroImg} 
+            src="/optimized/hero-desktop.webp" 
+            srcMobile="/optimized/hero-mobile.webp"
             alt="Consultório Eguchi Odontologia"
             className="w-full h-full object-cover"
             priority={true}
@@ -84,8 +110,7 @@ const Index = () => {
               />
             </div>
             <div className="space-y-6">
-              <h2 className="text-primary text-sm font-bold tracking-widest uppercase mb-2">Quem Somos</h2>
-              {/* Texto aumentado para md:text-5xl conforme solicitado */}
+              <h2 className="text-stone-600 text-sm font-bold tracking-widest uppercase mb-2">Quem Somos</h2>
               <h3 className="text-3xl md:text-5xl font-heading font-bold text-stone-900 leading-tight">
                 Mude sua percepção sobre ir ao dentista
               </h3>
@@ -172,8 +197,8 @@ const Index = () => {
               <div className="h-1 w-12 bg-primary my-4 rounded-full"></div>
               <ul className="text-stone-600 space-y-2 text-sm md:text-base">
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Especialista em Ortodontia</li>
-                {/* Ênfase removida conforme solicitado */}
-                <li className="flex items-center justify-center gap-2"><Star className="w-4 h-4 text-secondary fill-secondary"/> Invisalign Doctor</li>
+                {/* PADRONIZADO: Mesmo ícone e cor dos outros itens */}
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Invisalign Doctor</li>
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Odontologia Preventiva e Restauradora</li>
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Harmonização Orofacial (Beleza Natural)</li>
               </ul>
@@ -202,38 +227,47 @@ const Index = () => {
             <ServiceCard icon={Heart} title="Odontogeriatria" desc="Cuidado especializado e carinhoso para a terceira idade." />
             <ServiceCard icon={Clock} title="DTM / Bruxismo" desc="Tratamento para dores orofaciais e apertamento dentário." />
             <ServiceCard icon={Star} title="Reabilitação" desc="Próteses dentárias e reconstrução completa do sorriso." />
-            {/* Ícone alterado para Stethoscope */}
             <ServiceCard icon={Stethoscope} title="Clínico Geral" desc="Restaurações e procedimentos essenciais." />
           </div>
         </div>
       </section>
 
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="py-24 bg-primary text-white">
+      <section id="depoimentos" className="py-24 text-white bg-[#5c5552]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">O que dizem nossos pacientes</h2>
             <p className="opacity-90">Histórias reais de sorrisos transformados.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <TestimonialCard 
-              name="Gabriela"
-              text="Uma experiência incrível! Como alguém que sofre de síndrome do pânico, sempre tive muito medo de ir ao dentista. No entanto, a clínica me surpreendeu. O atendimento foi excepcional... o tratamento de canal que eu precisava foi feito de forma cuidadosa e profissional. Foi a primeira vez que não tive ansiedade."
-            />
-            <TestimonialCard 
-              name="Pamela"
-              text="Fiz alguns procedimentos desde implante até clareamento. A Ana e o Marcel realmente entregam aquilo que propõe, a odontologia humanizada. Atendimento impecável, preço justo e cuidado com o paciente durante todo o momento. Recomendo muito!"
-            />
-            <TestimonialCard 
-              name="Eric"
-              text="Fantástico, além de altamente capacitados todo o atendimento é altamente humanizado, como se fossem amigos de longa data. Super recomendo. Finalmente me sinto confiante para sorrir e mostrar meu sorriso!”"
-            />
-            <TestimonialCard 
-              name="Amanda"
-              text="A simpatia e atenção da equipe foi o que certamente mais me cativou, além da resolução com excelência do que estava me incomodando. Pós atendimento saí feliz, sem dores e sorrindo a toa. Super recomendo!!!”"
-            />
+          {/* VISÃO DESKTOP (Expandido) */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((t, i) => (
+              <TestimonialCard key={i} name={t.name} text={t.text} />
+            ))}
           </div>
+
+          {/* VISÃO MOBILE (Colapsado / Accordion) */}
+          <div className="md:hidden">
+            <Accordion type="single" collapsible className="w-full">
+              {testimonials.map((t, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border-white/20">
+                  <AccordionTrigger className="text-white hover:text-secondary hover:no-underline px-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center font-bold text-white text-xs">
+                        {t.name.charAt(0)}
+                      </div>
+                      <span className="font-bold">{t.name}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-stone-200 px-4 pb-6 italic">
+                    "{t.text}"
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
         </div>
       </section>
 
@@ -247,7 +281,7 @@ const Index = () => {
                         <div className="flex items-start gap-4">
                             <MapPin className="w-6 h-6 text-primary" />
                             <div>
-                                <h4 className="font-bold text-stone-900">Endereço</h4>
+                                <h3 className="font-bold text-stone-900">Endereço</h3>
                                 <p className="text-stone-600">Rodovia Admar Gonzaga, 971</p>
                                 <p className="text-stone-600">Itacorubi, Florianópolis - SC</p>
                                 <a href="https://maps.google.com/?q=Rodovia+Admar+Gonzaga+971+Itacorubi+Florianopolis" target="_blank" className="text-secondary font-bold text-sm hover:underline mt-1 block">Abrir no Google Maps</a>
@@ -255,9 +289,9 @@ const Index = () => {
                         </div>
                     </div>
                 </div>
-                {/* Mapa Focado no Endereço Correto */}
                 <div className="bg-stone-200 relative min-h-[300px]">
                     <iframe 
+                        title="Mapa de Localização Eguchi Odontologia"
                         src={mapEmbedUrl}
                         width="100%" 
                         height="100%" 
@@ -295,7 +329,7 @@ const ServiceCard = ({ icon: Icon, title, desc }: any) => (
       <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
         <Icon className="w-7 h-7" />
       </div>
-      <h4 className="font-bold text-lg text-stone-900 mb-2">{title}</h4>
+      <h3 className="font-bold text-lg text-stone-900 mb-2">{title}</h3>
       <p className="text-sm text-stone-600 leading-relaxed">{desc}</p>
     </CardContent>
   </Card>
