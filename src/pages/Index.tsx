@@ -12,7 +12,7 @@ import {
 } from "../components/ui/accordion";
 import { 
   Quote, Star, CheckCircle2, Clock, 
-  Heart, Sparkles, ShieldCheck, Microscope, MapPin, Stethoscope 
+  Heart, Sparkles, ShieldCheck, Microscope, MapPin, Stethoscope, Phone, Mail 
 } from "lucide-react";
 
 import heroImg from "../assets/hero.jpg"; 
@@ -197,7 +197,6 @@ const Index = () => {
               <div className="h-1 w-12 bg-primary my-4 rounded-full"></div>
               <ul className="text-stone-600 space-y-2 text-sm md:text-base">
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Especialista em Ortodontia</li>
-                {/* PADRONIZADO: Mesmo ícone e cor dos outros itens */}
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Invisalign Doctor</li>
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Odontologia Preventiva e Restauradora</li>
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Harmonização Orofacial (Beleza Natural)</li>
@@ -271,25 +270,53 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA & LOCALIZAÇÃO */}
+      {/* CTA & LOCALIZAÇÃO & CONTATO */}
       <section id="contato" className="py-20 text-center bg-stone-50">
         <div className="container mx-auto px-4">
            <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-stone-100 grid lg:grid-cols-2 text-left mb-12">
+                
+                {/* Informações de Contato Completas */}
                 <div className="p-10 md:p-14 flex flex-col justify-center">
-                    <h2 className="text-3xl font-heading font-bold text-stone-900 mb-6">Visite nossa clínica</h2>
-                    <div className="space-y-6">
+                    <h2 className="text-3xl font-heading font-bold text-stone-900 mb-8">Visite nossa clínica</h2>
+                    <div className="space-y-8">
+                        
+                        {/* Endereço */}
                         <div className="flex items-start gap-4">
-                            <MapPin className="w-6 h-6 text-primary" />
+                            <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
                             <div>
-                                <h3 className="font-bold text-stone-900">Endereço</h3>
+                                <h3 className="font-bold text-stone-900 mb-1">Endereço</h3>
                                 <p className="text-stone-600">Rodovia Admar Gonzaga, 971</p>
                                 <p className="text-stone-600">Itacorubi, Florianópolis - SC</p>
                                 <a href="https://maps.google.com/?q=Rodovia+Admar+Gonzaga+971+Itacorubi+Florianopolis" target="_blank" className="text-secondary font-bold text-sm hover:underline mt-1 block">Abrir no Google Maps</a>
                             </div>
                         </div>
+
+                        {/* Telefones (Adicionado aqui) */}
+                        <div className="flex items-start gap-4">
+                            <Phone className="w-6 h-6 text-primary flex-shrink-0" />
+                            <div>
+                                <h3 className="font-bold text-stone-900 mb-1">Telefones</h3>
+                                <p className="text-stone-600">(48) 3307-7090 (Fixo)</p>
+                                <p className="text-stone-600">(48) 99205-8586 (WhatsApp)</p>
+                            </div>
+                        </div>
+
+                        {/* Email (Adicionado aqui) */}
+                        <div className="flex items-start gap-4">
+                            <Mail className="w-6 h-6 text-primary flex-shrink-0" />
+                            <div>
+                                <h3 className="font-bold text-stone-900 mb-1">E-mail</h3>
+                                <a href="mailto:eguchi.odontologia@gmail.com" className="text-stone-600 hover:text-primary transition-colors">
+                                  eguchi.odontologia@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div className="bg-stone-200 relative min-h-[300px]">
+
+                {/* Mapa */}
+                <div className="bg-stone-200 relative min-h-[300px] h-full">
                     <iframe 
                         title="Mapa de Localização Eguchi Odontologia"
                         src={mapEmbedUrl}
