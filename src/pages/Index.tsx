@@ -246,9 +246,9 @@ const Index = () => {
             ))}
           </div>
 
-          {/* VISÃO MOBILE (Colapsado / Accordion) */}
+          {/* VISÃO MOBILE (Accordion) - Alteração Aqui: defaultValue="item-0" */}
           <div className="md:hidden">
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {testimonials.map((t, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-white/20">
                   <AccordionTrigger className="text-white hover:text-secondary hover:no-underline px-4">
@@ -291,7 +291,7 @@ const Index = () => {
                             </div>
                         </div>
 
-                        {/* Telefones (Adicionado aqui) */}
+                        {/* Telefones */}
                         <div className="flex items-start gap-4">
                             <Phone className="w-6 h-6 text-primary flex-shrink-0" />
                             <div>
@@ -301,7 +301,7 @@ const Index = () => {
                             </div>
                         </div>
 
-                        {/* Email (Adicionado aqui) */}
+                        {/* Email */}
                         <div className="flex items-start gap-4">
                             <Mail className="w-6 h-6 text-primary flex-shrink-0" />
                             <div>
