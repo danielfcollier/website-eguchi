@@ -6,18 +6,17 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { 
   Quote, Star, CheckCircle2, Clock, 
-  Heart, Sparkles, ShieldCheck, Microscope, MapPin 
+  Heart, Sparkles, ShieldCheck, Microscope, MapPin, Stethoscope 
 } from "lucide-react";
 
-// Imagens (Imports via path relativo ou alias, ajuste conforme seus arquivos reais)
-// Para produção, garanta que estas imagens existam em public/optimized/ ou src/assets/
-const heroImg = "/optimized/hero-main.jpg"; 
-const clinicaImg = "/assets/clinica_eguchi.jpg"; 
-const marcelImg = "/assets/marcel.jpg";
-const anaImg = "/assets/ana.jpg";
+import heroImg from "../assets/hero.jpg"; 
+import marcelImg from "../assets/marcel.jpg";
+import anaImg from "../assets/ana.jpg";
+import clinicaImg from "../assets/clinica_eguchi.jpg"; 
 
 const Index = () => {
   const whatsappLink = "https://wa.me/message/FP7NX7ED7JYTH1";
+  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.315039533306!2d-48.50379432454236!3d-27.583724276253787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273919e3556073%3A0x673999902506306!2sRod.%20Admar%20Gonzaga%2C%20971%20-%20Itacorubi%2C%20Florian%C3%B3polis%20-%20SC%2C%2088034-000!5e0!3m2!1spt-BR!2sbr!4v1710987654321!5m2!1spt-BR!2sbr";
 
   return (
     <div className="min-h-screen font-body text-stone-800 bg-stone-50">
@@ -38,7 +37,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white space-y-8 animate-in slide-in-from-left duration-1000">
             <div className="inline-block px-4 py-1 border border-primary/50 rounded-full bg-primary/20 backdrop-blur-sm text-sm tracking-widest uppercase font-heading text-stone-200">
-              Odontologia Humanizada em Florianópolis
+              Odontologia Humanizada no Itacorubi
             </div>
             
             <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
@@ -86,7 +85,8 @@ const Index = () => {
             </div>
             <div className="space-y-6">
               <h2 className="text-primary text-sm font-bold tracking-widest uppercase mb-2">Quem Somos</h2>
-              <h3 className="text-3xl md:text-4xl font-heading font-bold text-stone-900 leading-tight">
+              {/* Texto aumentado para md:text-5xl conforme solicitado */}
+              <h3 className="text-3xl md:text-5xl font-heading font-bold text-stone-900 leading-tight">
                 Mude sua percepção sobre ir ao dentista
               </h3>
               <p className="text-lg text-stone-600 leading-relaxed">
@@ -115,7 +115,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* NOVA SEÇÃO: A EXPERIÊNCIA EGUCHI */}
+      {/* EXPERIÊNCIA EGUCHI */}
       <section className="py-20 bg-stone-900 text-white">
           <div className="container mx-auto px-4">
               <div className="grid md:grid-cols-3 gap-8 text-center">
@@ -138,7 +138,7 @@ const Index = () => {
           </div>
       </section>
 
-      {/* CORPO CLÍNICO DETALHADO */}
+      {/* CORPO CLÍNICO */}
       <section id="equipe" className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -147,7 +147,6 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            
             {/* Dr Marcel */}
             <div className="flex flex-col items-center text-center group">
               <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-stone-100 shadow-xl group-hover:border-primary transition-colors duration-300">
@@ -173,12 +172,12 @@ const Index = () => {
               <div className="h-1 w-12 bg-primary my-4 rounded-full"></div>
               <ul className="text-stone-600 space-y-2 text-sm md:text-base">
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Especialista em Ortodontia</li>
-                <li className="flex items-center justify-center gap-2"><Star className="w-4 h-4 text-secondary fill-secondary"/> <strong>Invisalign Doctor</strong></li>
+                {/* Ênfase removida conforme solicitado */}
+                <li className="flex items-center justify-center gap-2"><Star className="w-4 h-4 text-secondary fill-secondary"/> Invisalign Doctor</li>
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Odontologia Preventiva e Restauradora</li>
                 <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Harmonização Orofacial (Beleza Natural)</li>
               </ul>
             </div>
-
           </div>
         </div>
       </section>
@@ -203,7 +202,8 @@ const Index = () => {
             <ServiceCard icon={Heart} title="Odontogeriatria" desc="Cuidado especializado e carinhoso para a terceira idade." />
             <ServiceCard icon={Clock} title="DTM / Bruxismo" desc="Tratamento para dores orofaciais e apertamento dentário." />
             <ServiceCard icon={Star} title="Reabilitação" desc="Próteses dentárias e reconstrução completa do sorriso." />
-            <ServiceCard icon={ShieldCheck} title="Clínico Geral" desc="Restaurações e procedimentos essenciais." />
+            {/* Ícone alterado para Stethoscope */}
+            <ServiceCard icon={Stethoscope} title="Clínico Geral" desc="Restaurações e procedimentos essenciais." />
           </div>
         </div>
       </section>
@@ -237,7 +237,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA FINAL & LOCALIZAÇÃO */}
+      {/* CTA & LOCALIZAÇÃO */}
       <section id="contato" className="py-20 text-center bg-stone-50">
         <div className="container mx-auto px-4">
            <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-stone-100 grid lg:grid-cols-2 text-left mb-12">
@@ -250,19 +250,21 @@ const Index = () => {
                                 <h4 className="font-bold text-stone-900">Endereço</h4>
                                 <p className="text-stone-600">Rodovia Admar Gonzaga, 971</p>
                                 <p className="text-stone-600">Itacorubi, Florianópolis - SC</p>
-                                <a href="https://maps.app.goo.gl/Z86HNFrLDQZBzfVC8" target="_blank" className="text-secondary font-bold text-sm hover:underline mt-1 block">Abrir no Google Maps</a>
+                                <a href="https://maps.google.com/?q=Rodovia+Admar+Gonzaga+971+Itacorubi+Florianopolis" target="_blank" className="text-secondary font-bold text-sm hover:underline mt-1 block">Abrir no Google Maps</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                {/* Mapa Focado no Endereço Correto */}
                 <div className="bg-stone-200 relative min-h-[300px]">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.2750379207913!2d-48.50654872457635!3d-27.585046221626245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527393436329729%3A0x673082334f37803!2sEguchi%20Odontologia!5e0!3m2!1spt-BR!2sbr!4v1710967000000!5m2!1spt-BR!2sbr" 
+                        src={mapEmbedUrl}
                         width="100%" 
                         height="100%" 
                         style={{border:0, position: 'absolute', inset: 0}} 
                         allowFullScreen 
                         loading="lazy" 
+                        referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
             </div>

@@ -1,63 +1,79 @@
 import React from 'react';
-import { Instagram, MapPin, Phone, MessageCircle } from "lucide-react";
+import { MapPin, MessageCircle, Globe } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { Logo } from "../components/Logo";
 
 export const LinksPage = () => {
+  const profile = {
+    name: "Eguchi Odontologia",
+    description: "Odontologia Humanizada em Florianópolis",
+    whatsapp: "https://wa.me/message/FP7NX7ED7JYTH1",
+    maps: "https://maps.google.com/?q=Rodovia+Admar+Gonzaga+971+Itacorubi+Florianopolis",
+    site: "/"
+  };
+
   const links = [
-    { 
-      text: "Agende sua Consulta (WhatsApp)", 
-      icon: MessageCircle, 
-      href: "https://wa.me/message/FP7NX7ED7JYTH1", 
-      style: "bg-secondary hover:bg-secondary/90 border-secondary"
+    {
+      label: "Agendar Consulta (WhatsApp)",
+      url: profile.whatsapp,
+      icon: MessageCircle,
+      highlight: true,
     },
-    { 
-      text: "Nosso Perfil no Instagram", 
-      icon: Instagram, 
-      href: "https://www.instagram.com/eguchiodontologia", 
-      style: "bg-stone-800 hover:bg-stone-700 border-stone-800"
+    {
+      label: "Como Chegar (Maps)",
+      url: profile.maps,
+      icon: MapPin,
+      highlight: false,
     },
-    { 
-      text: "Ver Endereço e Mapa", 
-      icon: MapPin, 
-      href: "https://maps.app.goo.gl/...", 
-      style: "bg-primary hover:bg-primary/90 border-primary"
-    },
-    { 
-      text: "Telefone Fixo: (48) 3307-7090", 
-      icon: Phone, 
-      href: "tel:+554833077090", 
-      style: "bg-white text-stone-800 border-stone-200 hover:bg-stone-100"
+    {
+      label: "Visite nosso Site Oficial",
+      url: profile.site,
+      icon: Globe,
+      highlight: false,
     }
   ];
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-stone-900 p-6">
-      <div className="w-full max-w-lg mt-12 mb-8 text-center">
-        <div className="w-24 h-24 bg-primary rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-heading font-bold text-white">
-          E
+    <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col font-body">
+      <main className="flex-1 container max-w-md mx-auto px-6 py-16 flex flex-col items-center">
+        
+        {/* Logo Area */}
+        <div className="mb-8 p-6 bg-stone-800/50 rounded-full border border-stone-700/50">
+           <Logo className="h-16 text-stone-200" />
         </div>
-        <h1 className="text-2xl font-heading font-bold text-white">Eguchi Odontologia</h1>
-        <p className="text-sm text-stone-400 mt-1">Odontologia Humanizada em Florianópolis</p>
-      </div>
 
-      <div className="w-full max-w-md space-y-4">
-        {links.map((link, index) => (
-          <Button 
-            key={index}
-            asChild
-            className={`w-full h-14 text-white font-bold rounded-xl text-base shadow-md transition-all duration-200 ${link.style}`}
-          >
-            <a href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
-              <link.icon className="w-5 h-5" />
-              {link.text}
-            </a>
-          </Button>
-        ))}
-      </div>
-      
-      <div className="mt-12 text-xs text-stone-600">
-        Desenvolvido por <a href="https://websiteturbo.com.br" target="_blank" rel="noopener" className="hover:text-stone-400">Website Turbo</a>
-      </div>
+        <h1 className="text-2xl font-heading font-bold mb-2 text-center text-white">{profile.name}</h1>
+        <p className="text-stone-400 text-center mb-10 text-sm max-w-xs">
+          {profile.description}
+        </p>
+
+        <div className="w-full flex flex-col gap-4">
+          {links.map((link, index) => {
+            const Icon = link.icon;
+            return (
+              <Button
+                key={index}
+                asChild
+                className={`w-full h-16 text-base font-bold rounded-xl transition-all duration-300 shadow-lg justify-start px-6 gap-4 ${
+                  link.highlight
+                    ? "bg-secondary hover:bg-secondary/90 text-white border-none scale-105 mb-2"
+                    : "bg-stone-800 text-stone-200 hover:bg-stone-700 hover:text-white border border-stone-700"
+                }`}
+              >
+                <a href={link.url} target={link.url === '/' ? "_self" : "_blank"} rel="noopener noreferrer">
+                  <Icon className="w-5 h-5" />
+                  {link.label}
+                </a>
+              </Button>
+            );
+          })}
+        </div>
+
+      </main>
+
+      <footer className="py-8 text-center text-xs text-stone-600 border-t border-stone-800">
+        <p>© {new Date().getFullYear()} Eguchi Odontologia</p>
+      </footer>
     </div>
   );
 };
