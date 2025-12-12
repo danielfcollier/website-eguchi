@@ -8,7 +8,8 @@ export const LinksPage = () => {
     name: "Eguchi Odontologia",
     description: "Odontologia Humanizada em Florianópolis",
     whatsapp: "https://wa.me/message/FP7NX7ED7JYTH1",
-    maps: "https://maps.google.com/?q=Rodovia+Admar+Gonzaga+971+Itacorubi+Florianopolis",
+    // Link do Maps (Destino)
+    maps: "https://maps.app.goo.gl/jeyGmnKJHmLGwd769",
     site: "/"
   };
 
@@ -34,16 +35,16 @@ export const LinksPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-900 text-stone-100 flex flex-col font-body">
+    <div className="min-h-screen bg-[#595959] text-white flex flex-col font-body bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-[#6b6b6b] to-[#595959]">
       <main className="flex-1 container max-w-md mx-auto px-6 py-16 flex flex-col items-center">
         
-        {/* Logo Area */}
-        <div className="mb-8 p-6 bg-stone-800/50 rounded-full border border-stone-700/50">
-           <Logo className="h-16 text-stone-200" />
+        {/* Logo Area com Efeito Vidro */}
+        <div className="mb-8 p-8 bg-white/5 rounded-full border border-white/10 shadow-2xl backdrop-blur-md">
+           <Logo className="h-16" dark={true} />
         </div>
 
-        <h1 className="text-2xl font-heading font-bold mb-2 text-center text-white">{profile.name}</h1>
-        <p className="text-stone-400 text-center mb-10 text-sm max-w-xs">
+        <h1 className="text-3xl font-heading font-bold mb-3 text-center tracking-tight">{profile.name}</h1>
+        <p className="text-stone-300 text-center mb-12 text-sm max-w-xs font-light leading-relaxed">
           {profile.description}
         </p>
 
@@ -54,14 +55,14 @@ export const LinksPage = () => {
               <Button
                 key={index}
                 asChild
-                className={`w-full h-16 text-base font-bold rounded-xl transition-all duration-300 shadow-lg justify-start px-6 gap-4 ${
+                className={`w-full h-16 text-base font-bold rounded-2xl transition-all duration-300 shadow-lg justify-start px-6 gap-4 hover:scale-[1.02] ${
                   link.highlight
-                    ? "bg-secondary hover:bg-secondary/90 text-white border-none scale-105 mb-2"
-                    : "bg-stone-800 text-stone-200 hover:bg-stone-700 hover:text-white border border-stone-700"
+                    ? "bg-[#047857] hover:bg-[#036045] text-white border-none shadow-[#047857]/20"
+                    : "bg-white/10 text-white hover:bg-white/20 border border-white/5 hover:border-white/20 backdrop-blur-sm"
                 }`}
               >
                 <a href={link.url} target={link.url === '/' ? "_self" : "_blank"} rel="noopener noreferrer">
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-5 h-5 opacity-90" />
                   {link.label}
                 </a>
               </Button>
@@ -71,7 +72,7 @@ export const LinksPage = () => {
 
       </main>
 
-      <footer className="py-8 text-center text-xs text-stone-600 border-t border-stone-800">
+      <footer className="py-8 text-center text-xs text-stone-400/60 border-t border-white/5">
         <p>© {new Date().getFullYear()} Eguchi Odontologia</p>
       </footer>
     </div>

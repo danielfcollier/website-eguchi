@@ -22,7 +22,12 @@ import clinicaImg from "../assets/clinica_eguchi.jpg";
 
 const Index = () => {
   const whatsappLink = "https://wa.me/message/FP7NX7ED7JYTH1";
+  
+  // Link de Visualização (Preview) do Mapa - Voltando para o /12 conforme solicitado
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.315039533306!2d-48.50379432454236!3d-27.583724276253787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273919e3556073%3A0x673999902506306!2sRod.%20Admar%20Gonzaga%2C%20971%20-%20Itacorubi%2C%20Florian%C3%B3polis%20-%20SC%2C%2088034-000!5e0!3m2!1spt-BR!2sbr!4v1710987654321!5m2!1spt-BR!2sbr";
+
+  // Link de Destino (Ao clicar)
+  const mapDestinationUrl = "https://maps.app.goo.gl/jeyGmnKJHmLGwd769";
 
   const testimonials = [
     {
@@ -57,12 +62,12 @@ const Index = () => {
             className="w-full h-full object-cover"
             priority={true}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#595959]/90 via-[#595959]/60 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white space-y-8 animate-in slide-in-from-left duration-1000">
-            <div className="inline-block px-4 py-1 border border-primary/50 rounded-full bg-primary/20 backdrop-blur-sm text-sm tracking-widest uppercase font-heading text-stone-200">
+            <div className="inline-block px-4 py-1 border border-[#FF9701]/50 rounded-full bg-[#FF9701]/10 backdrop-blur-sm text-sm tracking-widest uppercase font-heading text-[#FF9701] font-bold">
               Odontologia humanizada
             </div>
             
@@ -70,7 +75,7 @@ const Index = () => {
               Transforme sua relação com o dentista
             </h1>
             
-            <p className="text-xl md:text-2xl font-light text-stone-200 italic border-l-4 border-primary pl-6">
+            <p className="text-xl md:text-2xl font-light text-stone-200 italic border-l-4 border-[#FF9701] pl-6">
               "O que o sol é para flores, o <strong className="text-white">sorriso</strong> é para a humanidade."
             </p>
 
@@ -102,7 +107,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <div className="absolute -inset-4 bg-primary/20 rounded-2xl transform -rotate-3"></div>
+              <div className="absolute -inset-4 bg-[#857B75]/20 rounded-2xl transform -rotate-3"></div>
               <OptimizedImage 
                 src={clinicaImg} 
                 alt="Fachada Eguchi Odontologia" 
@@ -110,7 +115,7 @@ const Index = () => {
               />
             </div>
             <div className="space-y-6">
-              <h2 className="text-stone-600 text-sm font-bold tracking-widest uppercase mb-2">Quem Somos</h2>
+              <h2 className="text-[#FF9701] text-sm font-bold tracking-widest uppercase mb-2">Quem Somos</h2>
               <h3 className="text-3xl md:text-5xl font-heading font-bold text-stone-900 leading-tight">
                 Mude sua percepção sobre ir ao dentista
               </h3>
@@ -121,14 +126,14 @@ const Index = () => {
               
               <div className="grid grid-cols-2 gap-6 pt-4">
                 <div className="flex gap-3 items-start">
-                  <div className="bg-primary/10 p-2 rounded-lg text-primary"><Heart className="w-6 h-6"/></div>
+                  <div className="bg-[#857B75]/10 p-2 rounded-lg text-[#857B75]"><Heart className="w-6 h-6"/></div>
                   <div>
                     <h4 className="font-bold text-stone-900">Empatia</h4>
                     <p className="text-sm text-stone-500">Atendimento humano.</p>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
-                  <div className="bg-primary/10 p-2 rounded-lg text-primary"><Sparkles className="w-6 h-6"/></div>
+                  <div className="bg-[#857B75]/10 p-2 rounded-lg text-[#857B75]"><Sparkles className="w-6 h-6"/></div>
                   <div>
                     <h4 className="font-bold text-stone-900">Tecnologia</h4>
                     <p className="text-sm text-stone-500">Odontologia Digital.</p>
@@ -141,23 +146,23 @@ const Index = () => {
       </section>
 
       {/* EXPERIÊNCIA EGUCHI */}
-      <section className="py-20 bg-stone-900 text-white">
+      <section className="py-20 bg-[#595959] text-white">
           <div className="container mx-auto px-4">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                   <div className="p-6">
-                      <div className="w-16 h-16 bg-stone-800 rounded-full flex items-center justify-center text-primary mx-auto mb-4 border border-stone-700 font-bold text-xl">1</div>
+                      <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-[#FF9701] mx-auto mb-4 border border-white/20 font-bold text-xl">1</div>
                       <h3 className="text-xl font-bold mb-2">Avaliação Acolhedora</h3>
-                      <p className="text-stone-400">Conversamos para entender seus desejos e medos, em um ambiente relaxante.</p>
+                      <p className="text-stone-300">Conversamos para entender seus desejos e medos, em um ambiente relaxante.</p>
                   </div>
                   <div className="p-6">
-                      <div className="w-16 h-16 bg-stone-800 rounded-full flex items-center justify-center text-primary mx-auto mb-4 border border-stone-700 font-bold text-xl">2</div>
+                      <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-[#FF9701] mx-auto mb-4 border border-white/20 font-bold text-xl">2</div>
                       <h3 className="text-xl font-bold mb-2">Planejamento Digital</h3>
-                      <p className="text-stone-400">Escaneamento 3D para você visualizar o resultado antes de começar.</p>
+                      <p className="text-stone-300">Escaneamento 3D para você visualizar o resultado antes de começar.</p>
                   </div>
                   <div className="p-6">
-                      <div className="w-16 h-16 bg-stone-800 rounded-full flex items-center justify-center text-primary mx-auto mb-4 border border-stone-700 font-bold text-xl">3</div>
+                      <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-[#FF9701] mx-auto mb-4 border border-white/20 font-bold text-xl">3</div>
                       <h3 className="text-xl font-bold mb-2">Execução sem Dor</h3>
-                      <p className="text-stone-400">Técnicas modernas e mãos leves para seu conforto total.</p>
+                      <p className="text-stone-300">Técnicas modernas e mãos leves para seu conforto total.</p>
                   </div>
               </div>
           </div>
@@ -174,32 +179,32 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Dr Marcel */}
             <div className="flex flex-col items-center text-center group">
-              <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-stone-100 shadow-xl group-hover:border-primary transition-colors duration-300">
+              <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-stone-100 shadow-xl group-hover:border-[#857B75] transition-colors duration-300">
                 <OptimizedImage src={marcelImg} alt="Dr. Marcel Eguchi" className="w-full h-full object-cover object-top" />
               </div>
               <h3 className="text-2xl font-bold font-heading text-stone-900">Dr. Marcel Eguchi</h3>
-              <div className="h-1 w-12 bg-primary my-4 rounded-full"></div>
+              <div className="h-1 w-12 bg-[#857B75] my-4 rounded-full"></div>
               <ul className="text-stone-600 space-y-2 text-sm md:text-base">
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Implantodontista</li>
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Lentes de Contato Dental</li>
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Odontogeriatria</li>
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> DTM (Bruxismo/Apertamento)</li>
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Prótese Dentária & Reabilitação Oral</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Implantodontista</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Lentes de Contato Dental</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Odontogeriatria</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> DTM (Bruxismo/Apertamento)</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Prótese Dentária & Reabilitação Oral</li>
               </ul>
             </div>
 
             {/* Dra Ana */}
             <div className="flex flex-col items-center text-center group">
-              <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-stone-100 shadow-xl group-hover:border-primary transition-colors duration-300">
+              <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-stone-100 shadow-xl group-hover:border-[#857B75] transition-colors duration-300">
                 <OptimizedImage src={anaImg} alt="Dra. Ana Flávia Rodrigues" className="w-full h-full object-cover object-top" />
               </div>
               <h3 className="text-2xl font-bold font-heading text-stone-900">Dra. Ana Flávia Rodrigues</h3>
-              <div className="h-1 w-12 bg-primary my-4 rounded-full"></div>
+              <div className="h-1 w-12 bg-[#857B75] my-4 rounded-full"></div>
               <ul className="text-stone-600 space-y-2 text-sm md:text-base">
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Especialista em Ortodontia</li>
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Invisalign Doctor</li>
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Odontologia Preventiva e Restauradora</li>
-                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Harmonização Orofacial (Beleza Natural)</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Especialista em Ortodontia</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Invisalign Doctor</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Odontologia Preventiva e Restauradora</li>
+                <li className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#857B75]"/> Harmonização Orofacial (Beleza Natural)</li>
               </ul>
             </div>
           </div>
@@ -232,21 +237,19 @@ const Index = () => {
       </section>
 
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="py-24 text-white bg-[#5c5552]">
+      <section id="depoimentos" className="py-24 text-white bg-[#595959]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">O que dizem nossos pacientes</h2>
             <p className="opacity-90">Histórias reais de sorrisos transformados.</p>
           </div>
 
-          {/* VISÃO DESKTOP (Expandido) */}
           <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {testimonials.map((t, i) => (
               <TestimonialCard key={i} name={t.name} text={t.text} />
             ))}
           </div>
 
-          {/* VISÃO MOBILE (Accordion) - Com Gabriela aberta por padrão */}
           <div className="md:hidden">
             <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {testimonials.map((t, i) => (
@@ -270,52 +273,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA & LOCALIZAÇÃO & CONTATO */}
+      {/* CTA & LOCALIZAÇÃO */}
       <section id="contato" className="py-20 text-center bg-stone-50">
         <div className="container mx-auto px-4">
            <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-stone-100 grid lg:grid-cols-2 text-left mb-12">
-                
-                {/* Informações de Contato Completas */}
                 <div className="p-10 md:p-14 flex flex-col justify-center">
                     <h2 className="text-3xl font-heading font-bold text-stone-900 mb-8">Visite nossa clínica</h2>
                     <div className="space-y-8">
-                        
-                        {/* Endereço */}
                         <div className="flex items-start gap-4">
-                            <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
+                            <MapPin className="w-6 h-6 text-[#857B75] flex-shrink-0" />
                             <div>
                                 <h3 className="font-bold text-stone-900 mb-1">Endereço</h3>
                                 <p className="text-stone-600">Rodovia Admar Gonzaga, 971</p>
                                 <p className="text-stone-600">Itacorubi, Florianópolis - SC</p>
-                                <a href="https://maps.google.com/?q=Rodovia+Admar+Gonzaga+971+Itacorubi+Florianopolis" target="_blank" className="text-secondary font-bold text-sm hover:underline mt-1 block">Abrir no Google Maps</a>
+                                <p className="text-sm text-[#FF9701] mt-1 font-semibold">Estacionamento Gratuito no local</p>
+                                <a href={mapDestinationUrl} target="_blank" className="text-secondary font-bold text-sm hover:underline mt-2 block">Abrir no Google Maps</a>
                             </div>
                         </div>
-
-                        {/* Telefones */}
                         <div className="flex items-start gap-4">
-                            <Phone className="w-6 h-6 text-primary flex-shrink-0" />
+                            <Phone className="w-6 h-6 text-[#857B75] flex-shrink-0" />
                             <div>
                                 <h3 className="font-bold text-stone-900 mb-1">Telefones</h3>
                                 <p className="text-stone-600">(48) 3307-7090 (Fixo)</p>
                                 <p className="text-stone-600">(48) 99205-8586 (WhatsApp)</p>
                             </div>
                         </div>
-
-                        {/* Email */}
                         <div className="flex items-start gap-4">
-                            <Mail className="w-6 h-6 text-primary flex-shrink-0" />
+                            <Mail className="w-6 h-6 text-[#857B75] flex-shrink-0" />
                             <div>
                                 <h3 className="font-bold text-stone-900 mb-1">E-mail</h3>
-                                <a href="mailto:eguchi.odontologia@gmail.com" className="text-stone-600 hover:text-primary transition-colors">
+                                <a href="mailto:eguchi.odontologia@gmail.com" className="text-stone-600 hover:text-[#857B75] transition-colors">
                                   eguchi.odontologia@gmail.com
                                 </a>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-                {/* Mapa */}
                 <div className="bg-stone-200 relative min-h-[300px] h-full">
                     <iframe 
                         title="Mapa de Localização Eguchi Odontologia"
@@ -353,7 +346,7 @@ const Index = () => {
 const ServiceCard = ({ icon: Icon, title, desc }: any) => (
   <Card className="border-none shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white group h-full">
     <CardContent className="p-6 text-center flex flex-col items-center h-full">
-      <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+      <div className="w-14 h-14 bg-[#857B75]/10 rounded-full flex items-center justify-center text-[#857B75] mb-4 group-hover:bg-[#857B75] group-hover:text-white transition-colors">
         <Icon className="w-7 h-7" />
       </div>
       <h3 className="font-bold text-lg text-stone-900 mb-2">{title}</h3>

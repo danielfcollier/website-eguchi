@@ -35,7 +35,8 @@ export const Header = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         
         <Link to="/" aria-label="Ir para o início">
-          <Logo className={`h-12 transition-colors ${isScrolled ? "text-primary" : "text-white"}`} dark={isScrolled} />
+          {/* Lógica Corrigida: Se NÃO rolou (transparente), use dark mode (texto branco). Se rolou (fundo branco), use light mode. */}
+          <Logo className="h-12" dark={!isScrolled} />
         </Link>
 
         {/* Desktop Menu */}
@@ -44,7 +45,7 @@ export const Header = () => {
             <a 
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${
+              className={`text-sm font-medium tracking-wide hover:text-brand-orange transition-colors uppercase ${
                 isScrolled ? "text-stone-600" : "text-white/90"
               }`}
             >
@@ -56,7 +57,11 @@ export const Header = () => {
             className="bg-secondary text-white hover:bg-secondary/90 font-heading font-bold tracking-wide rounded-full px-6 shadow-lg hover:scale-105 transition-transform"
             asChild
           >
-            <a href="https://wa.me/message/FP7NX7ED7JYTH1" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://wa.me/message/FP7NX7ED7JYTH1"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               Agendar Consulta
             </a>
           </Button>
@@ -70,20 +75,20 @@ export const Header = () => {
                 variant="ghost" 
                 size="icon" 
                 className={isScrolled ? "text-stone-800" : "text-white"}
-                aria-label="Abrir menu de navegação"
+                aria-label="Abrir menu"
               >
                 <Menu className="w-8 h-8" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] bg-white border-l border-stone-100">
               <div className="flex flex-col gap-8 mt-10">
-                <Logo className="h-10 mx-auto" dark />
+                <Logo className="h-10 mx-auto" />
                 <div className="flex flex-col gap-4">
                   {navLinks.map((link) => (
                     <a 
                       key={link.name}
                       href={link.href}
-                      className="text-lg font-medium text-stone-600 hover:text-primary py-2 border-b border-stone-100"
+                      className="text-lg font-medium text-stone-600 hover:text-brand-orange py-2 border-b border-stone-100"
                     >
                       {link.name}
                     </a>
