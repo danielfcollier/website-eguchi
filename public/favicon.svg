@@ -1,11 +1,6 @@
 <svg width="512" height="512" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="35" r="25" stroke="#FF9701" stroke-width="6" opacity="0.9" />
-  
-  <circle cx="50" cy="65" r="25" stroke="#857B75" stroke-width="6" opacity="0.9" />
-  
-  <circle cx="35" cy="50" r="25" stroke="#857B75" stroke-width="6" opacity="0.9" />
-  
-  <circle cx="65" cy="50" r="25" stroke="#857B75" stroke-width="6" opacity="0.9" />
-  
-  <circle cx="50" cy="50" r="4" fill="#FF9701" />
+  <circle cx="50" cy="35" r="25" stroke="#FF9701" stroke-width="4" />
+  <circle cx="50" cy="65" r="25" stroke="#FF9701" stroke-width="4" />
+  <circle cx="35" cy="50" r="25" stroke="#FF9701" stroke-width="4" />
+  <circle cx="65" cy="50" r="25" stroke="#FF9701" stroke-width="4" />
 </svg>

@@ -14,10 +14,10 @@ const outputDir = path.join(__dirname, '../public/optimized');
 const publicDir = path.join(__dirname, '../public');
 const SITE_URL = 'https://eguchiodontologia.net';
 
-// Identidade Visual Eguchi (Nova Paleta)
-const BRAND_TAUPE = '#857B75';
+// Cores
 const BRAND_ORANGE = '#FF9701';
 const BRAND_DARK = '#595959';
+const BRAND_TAUPE = '#857B75';
 const TEXT_LIGHT = '#F5F5F4';
 
 const sizes = {
@@ -38,7 +38,7 @@ async function generateStaticQRCode() {
   });
 }
 
-// 2. GERAR CAPA SOCIAL (OG IMAGE) COM LOGO IKIGAI
+// 2. GERAR CAPA SOCIAL (OG IMAGE)
 async function generateOGImage() {
   console.log('🎨 Gerando Capa Social (OG Image)...');
   
@@ -47,75 +47,40 @@ async function generateOGImage() {
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
-  // Fundo (Brand Dark)
-  const gradiente = ctx.createLinearGradient(0, 0, width, height);
-  gradiente.addColorStop(0, '#595959'); // Brand Dark
-  gradiente.addColorStop(1, '#404040'); // Um pouco mais escuro
-  ctx.fillStyle = gradiente;
+  // Fundo
+  ctx.fillStyle = BRAND_DARK;
   ctx.fillRect(0, 0, width, height);
 
-  // --- DESENHO DO LOGO IKIGAI (Lateral) ---
+  // Logo Ikigai (Lateral)
   const logoX = 200;
   const logoY = 315;
-  const r = 80; // Raio dos círculos
-  const lw = 12; // Espessura da linha
-
-  ctx.lineWidth = lw;
+  const r = 80;
+  ctx.lineWidth = 14;
   
-  // Círculo Superior (Laranja)
-  ctx.beginPath();
-  ctx.arc(logoX, logoY - 50, r, 0, 2 * Math.PI);
-  ctx.strokeStyle = BRAND_ORANGE;
-  ctx.stroke();
+  ctx.strokeStyle = BRAND_ORANGE; 
+  ctx.beginPath(); ctx.arc(logoX, logoY - 50, r, 0, 2 * Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.arc(logoX, logoY + 50, r, 0, 2 * Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.arc(logoX - 50, logoY, r, 0, 2 * Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.arc(logoX + 50, logoY, r, 0, 2 * Math.PI); ctx.stroke();
 
-  // Círculo Inferior (Taupe)
-  ctx.beginPath();
-  ctx.arc(logoX, logoY + 50, r, 0, 2 * Math.PI);
-  ctx.strokeStyle = BRAND_TAUPE;
-  ctx.stroke();
-
-  // Círculo Esquerdo (Taupe)
-  ctx.beginPath();
-  ctx.arc(logoX - 50, logoY, r, 0, 2 * Math.PI);
-  ctx.strokeStyle = BRAND_TAUPE;
-  ctx.stroke();
-
-  // Círculo Direito (Taupe)
-  ctx.beginPath();
-  ctx.arc(logoX + 50, logoY, r, 0, 2 * Math.PI);
-  ctx.strokeStyle = BRAND_TAUPE;
-  ctx.stroke();
-
-  // Ponto Central (Laranja)
-  ctx.beginPath();
-  ctx.arc(logoX, logoY, 10, 0, 2 * Math.PI);
-  ctx.fillStyle = BRAND_ORANGE;
-  ctx.fill();
-
-  // --- TEXTOS ---
+  // Texto
   ctx.textAlign = 'left';
   
-  // Título Principal
+  // Título
   ctx.fillStyle = TEXT_LIGHT;
   ctx.font = 'bold 70px sans-serif'; 
-  ctx.fillText('Eguchi Odontologia', 400, 240);
+  ctx.fillText('Eguchi Odontologia', 400, 230);
 
-  // Subtítulo (Laranja)
+  // Frase Poética (Em destaque)
   ctx.fillStyle = BRAND_ORANGE;
-  ctx.font = 'italic 32px sans-serif';
-  ctx.fillText('Odontologia Humanizada em Florianópolis', 405, 300);
+  ctx.font = 'italic 34px sans-serif';
+  ctx.fillText('"O que o sol é para flores,', 405, 300);
+  ctx.fillText('o sorriso é para a humanidade."', 405, 345);
   
-  // Descrição Extra
+  // Rodapé
   ctx.fillStyle = '#CCCCCC'; 
   ctx.font = '26px sans-serif';
-  ctx.fillText('+14 anos de experiência em Reabilitação Oral', 405, 350);
-  ctx.fillText('Estacionamento Gratuito no local', 405, 390);
-
-  // Rodapé (URL)
-  ctx.textAlign = 'center';
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-  ctx.font = '24px sans-serif';
-  ctx.fillText('eguchiodontologia.net', width/2, 580);
+  ctx.fillText('Florianópolis - SC', 405, 450);
 
   const buffer = canvas.toBuffer('image/jpeg');
   fs.writeFileSync(path.join(publicDir, 'og-image.jpg'), buffer);
@@ -130,17 +95,14 @@ async function optimizeImages() {
   for (const file of files) {
     const fullPath = path.join(srcDir, file);
     if (fs.statSync(fullPath).isDirectory()) continue;
-
     const ext = path.extname(file).toLowerCase();
     if (['.jpg', '.jpeg', '.png'].includes(ext)) {
       try {
         const image = sharp(fullPath);
         const metadata = await image.metadata();
         const baseName = path.basename(file, ext);
-
         for (const [sizeName, config] of Object.entries(sizes)) {
           const shouldResize = metadata.width > config.width;
-          
           await image.clone()
             .resize(shouldResize ? config.width : null, null, { withoutEnlargement: true })
             .webp({ quality: config.quality, effort: 4 })
@@ -152,20 +114,15 @@ async function optimizeImages() {
             .toFile(path.join(outputDir, `${baseName}-${sizeName}.jpg`));
         }
       } catch (error) {
-        console.warn(`   ⚠️ Pular ${file}: ${error.message}`);
+        console.warn(`⚠️ Erro ao processar ${file}: ${error.message}`);
       }
     }
   }
 }
 
 async function runBuild() {
-  console.log('🚀 Iniciando Build de Assets Eguchi (Novo Logo)...');
-  await Promise.all([
-    generateStaticQRCode(),
-    generateOGImage(),
-    optimizeImages()
-  ]);
-  console.log('✨ Assets e OG Image atualizados.');
+  await Promise.all([generateStaticQRCode(), generateOGImage(), optimizeImages()]);
+  console.log('✅ Assets gerados.');
 }
 
 runBuild();

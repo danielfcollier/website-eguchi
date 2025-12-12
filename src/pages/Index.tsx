@@ -12,7 +12,7 @@ import {
 } from "../components/ui/accordion";
 import { 
   Quote, Star, CheckCircle2, Clock, 
-  Heart, Sparkles, ShieldCheck, Microscope, MapPin, Stethoscope, Phone, Mail 
+  Heart, Sparkles, ShieldCheck, Microscope, MapPin, Stethoscope, Phone, Mail, Instagram 
 } from "lucide-react";
 
 import heroImg from "../assets/hero.jpg"; 
@@ -23,7 +23,7 @@ import clinicaImg from "../assets/clinica_eguchi.jpg";
 const Index = () => {
   const whatsappLink = "https://wa.me/message/FP7NX7ED7JYTH1";
   
-  // Link de Visualização (Preview) do Mapa - Voltando para o /12 conforme solicitado
+  // Link de Visualização (Preview) do Mapa
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.315039533306!2d-48.50379432454236!3d-27.583724276253787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273919e3556073%3A0x673999902506306!2sRod.%20Admar%20Gonzaga%2C%20971%20-%20Itacorubi%2C%20Florian%C3%B3polis%20-%20SC%2C%2088034-000!5e0!3m2!1spt-BR!2sbr!4v1710987654321!5m2!1spt-BR!2sbr";
 
   // Link de Destino (Ao clicar)
@@ -280,6 +280,7 @@ const Index = () => {
                 <div className="p-10 md:p-14 flex flex-col justify-center">
                     <h2 className="text-3xl font-heading font-bold text-stone-900 mb-8">Visite nossa clínica</h2>
                     <div className="space-y-8">
+                        {/* Endereço */}
                         <div className="flex items-start gap-4">
                             <MapPin className="w-6 h-6 text-[#857B75] flex-shrink-0" />
                             <div>
@@ -290,6 +291,8 @@ const Index = () => {
                                 <a href={mapDestinationUrl} target="_blank" className="text-secondary font-bold text-sm hover:underline mt-2 block">Abrir no Google Maps</a>
                             </div>
                         </div>
+
+                        {/* Telefones */}
                         <div className="flex items-start gap-4">
                             <Phone className="w-6 h-6 text-[#857B75] flex-shrink-0" />
                             <div>
@@ -298,12 +301,25 @@ const Index = () => {
                                 <p className="text-stone-600">(48) 99205-8586 (WhatsApp)</p>
                             </div>
                         </div>
+
+                        {/* Email */}
                         <div className="flex items-start gap-4">
                             <Mail className="w-6 h-6 text-[#857B75] flex-shrink-0" />
                             <div>
                                 <h3 className="font-bold text-stone-900 mb-1">E-mail</h3>
                                 <a href="mailto:eguchi.odontologia@gmail.com" className="text-stone-600 hover:text-[#857B75] transition-colors">
                                   eguchi.odontologia@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Instagram (NOVO) */}
+                        <div className="flex items-start gap-4">
+                            <Instagram className="w-6 h-6 text-[#857B75] flex-shrink-0" />
+                            <div>
+                                <h3 className="font-bold text-stone-900 mb-1">Instagram</h3>
+                                <a href="https://www.instagram.com/eguchiodontologia" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#857B75] transition-colors">
+                                  @eguchiodontologia
                                 </a>
                             </div>
                         </div>
