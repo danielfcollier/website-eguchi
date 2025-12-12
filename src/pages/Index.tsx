@@ -17,7 +17,7 @@ import {
 
 import heroImg from "../assets/hero.jpg"; 
 import marcelImg from "../assets/marcel.jpg";
-import anaImg from "../assets/ana.jpg";
+import anaImg from "../assets/ana.png";
 import clinicaImg from "../assets/clinica_eguchi.jpg"; 
 
 const Index = () => {
