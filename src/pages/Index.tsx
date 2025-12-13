@@ -348,7 +348,7 @@ const Index = () => {
             className="bg-secondary hover:bg-secondary/90 text-white font-bold h-16 px-10 rounded-full text-xl shadow-xl hover:-translate-y-1 transition-transform"
           >
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              Agendar minha Consulta Agora
+              Agendar Consulta
             </a>
           </Button>
         </div>
